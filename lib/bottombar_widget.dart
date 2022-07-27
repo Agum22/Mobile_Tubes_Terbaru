@@ -1,4 +1,6 @@
 
+import 'package:android/AddPage.dart';
+import 'package:android/homescreen.dart';
 import 'package:flutter/material.dart';
 
 class BottombarWidget extends StatelessWidget{
@@ -14,7 +16,11 @@ class BottombarWidget extends StatelessWidget{
      items: [
        BottomNavigationBarItem(
            icon: IconButton(
-             onPressed: (){},
+             onPressed: (){
+               Navigator.of(Context).pushAndRemoveUntil(
+                   MaterialPageRoute(builder: (context) => HomeScreen()),
+                       (Route<dynamic> route) => false);
+             },
              icon: Icon(Icons.home, color: Colors.black,),
            ),
            label: 'home'
@@ -22,8 +28,16 @@ class BottombarWidget extends StatelessWidget{
        BottomNavigationBarItem(icon: Icon(Icons.search,color: Colors.black,),
            label: 'search'
        ),
-       BottomNavigationBarItem(icon: Icon(Icons.video_collection_outlined,color: Colors.black,),
-           label: 'reels'
+       BottomNavigationBarItem(
+           icon: IconButton(
+             onPressed: (){
+               Navigator.of(Context).pushAndRemoveUntil(
+                   MaterialPageRoute(builder: (context) => AddPage()),
+                       (Route<dynamic> route) => false);
+             },
+             icon: Icon(Icons.add, color: Colors.black,),
+           ),
+           label: 'home'
        ),
 
        BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined,color: Colors.black,),

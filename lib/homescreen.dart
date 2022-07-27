@@ -101,20 +101,24 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: logout
           ),
 
-          IconButton(icon: Icon(Icons.add,
-          size: 35,
-          ), onPressed: (){},),
-
           IconButton(
-            icon: Icon(Icons.bookmark_border_outlined),
-          iconSize: 30,
-          onPressed: (){
-              Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context)=> bookmark()
-                  ),
-              );
-          }),
+            icon: Icon(Icons.refresh,
+              size: 35,),
+            onPressed: (){
+              setState((){});
+            },
+          ),
+
+          // IconButton(
+          //   icon: Icon(Icons.bookmark_border_outlined),
+          // iconSize: 30,
+          // onPressed: (){
+          //     Navigator.of(context).push(
+          //         MaterialPageRoute(
+          //             builder: (context)=> bookmark()
+          //         ),
+          //     );
+          // }),
 
           IconButton(
             icon: Icon(Icons.send),
@@ -130,16 +134,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ],),
 
       body: Column(children:[
-      StoryWidget(),
-      Container(
-        child: _namaUser,
+        StoryWidget(),
+        Container(
+          child: _namaUser,
+        ),
+        Divider(color: Colors.grey),
+          Expanded(child: PostWidget(),)
+        ]
       ),
-      Divider(color: Colors.grey),
-        Expanded(child: PostWidget(),)
-      ]
-
-
-          ),
 
 
       bottomNavigationBar: BottombarWidget(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:android/homescreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'CobaRegis.dart';
 
 import 'firebase_akun.dart';
 
@@ -145,8 +146,10 @@ class _CobaLoginState extends State<CobaLogin> {
           ),
         ),
       ),
-      Container(
-        padding: const EdgeInsets.only(top: 10.0),
+      GestureDetector(
+        onTap: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>   CobaRegis()),);
+        },
         child: const Text('New User? Create Account'),
       ),
 
